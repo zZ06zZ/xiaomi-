@@ -127,6 +127,7 @@ background-color: #424242;
 float: right;
 box-sizing: border-box;
 margin-left: 28px;
+position: relative;
 }
 
 .cart em:first-child{
@@ -139,8 +140,8 @@ margin-left: 28px;
 .cart_ovh{
     position: absolute;
     width: 320px;
-    height: 0px;
-    right: 150px;
+    height: 250px;
+    right: -83px;
     top: 40px;
     background-color: #FFF;
     margin-right: 82px;
