@@ -434,6 +434,7 @@ float: left;
     width: 230px;
     height: 460px;
     z-index: 555;
+    cursor: pointer;
 }
 .banner_l>ul{
     padding-top: 15px;
