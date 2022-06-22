@@ -321,7 +321,7 @@ padding-left: 15px;
 float: left;
 }
 
-.Search input[type=submit]{
+.Search input[type=button]{
  width: 50px;
  height: 50px;
  font-size: 16px;
@@ -334,7 +334,7 @@ float: left;
  
 }
 
-.Search input[type=submit]:hover{
+.Search input[type=button]:hover{
  color: #fff;
  border: 1px solid #fb670f;
  background-color: #fb670f;
