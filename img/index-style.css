@@ -227,7 +227,7 @@ color: #fb670f;
 .nav_ul_son_box{
     z-index: 999;
     height: 0px;
-    width: 100%;
+  
     position: absolute;
     background-color: #FFF;
     left: 0;
@@ -235,6 +235,16 @@ color: #fb670f;
     overflow: hidden;
     box-shadow: 0px 6px 8px rgba(0,0,0,0.1);
     transition: height 0.5s;
+}
+@media screen and (max-width:400px){
+    .nav_ul_son_box{
+        width: 321%;
+    }
+}
+@media screen and (min-width:1226px){
+    .nav_ul_son_box{
+        width: 100%;
+    }
 }
 .nav_ul_son_box::-webkit-scrollbar{
     display: none;
@@ -244,12 +254,12 @@ color: #fb670f;
     border-top: 1px solid rgb(235, 235, 235);
 }
 .nav_ul_son_box ul{
+    width: 1226px;
     list-style: none;
-   
+    position: relative;
     cursor: pointer;
- 
     margin: 0 auto;
-    padding-left: 178px;
+    left: 100px;
 }
 .nav_ul_son_box ul li{
     float: left;
