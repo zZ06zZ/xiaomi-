@@ -485,6 +485,9 @@ float: left;
     font-size: 14px;
     color: #333;
 }
+.banner_ez ul li a:hover{ 
+    color: #fb670f;
+}
 .banner_ezw2{
     width: 472px;
 }
