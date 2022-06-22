@@ -140,7 +140,7 @@ position: relative;
 .cart_ovh{
     position: absolute;
     width: 320px;
-    height: 250px;
+    height: 0px;
     right: -83px;
     top: 40px;
     background-color: #FFF;
