@@ -76,7 +76,7 @@
         </script>
            <!-- 右浮动 -->
            <div class="nav_right">
-            <a href="javascript:void(0)">登录</a><span>|</span>
+            <a href="./login.html">登录</a><span>|</span>
             <a href="javascript:void(0)">注册</a><span>|</span>
             <a href="javascript:void(0)">消息通知</a>
            </div>
@@ -419,7 +419,7 @@
                     <li><a><img src="./img/images/lb-2.webp" alt=""></a></li>
                     <li><a><img src="./img/images/lb-3.webp" alt=""></a></li>
                     <li><a><img src="./img/images/lb-4.jpg" alt=""></a></li>
-                   
+                    <li><a><img src="./img/images/lb-1.png" alt=""></a></li>
                 </ul>
              </div>
              <script>
@@ -429,84 +429,98 @@
                 var ol=benner_lby.querySelector('.circle');
                 var ul=benner_lby.querySelector('ul');
                 var li=ul.children;
-                var foucusWidth=benner_lby.offsetWidth; 
                 benner_lby.addEventListener('mouseenter',function(){
                     clearInterval(timer);
-                    timer=null;
                 })
                 benner_lby.addEventListener('mouseleave',function(){
-                    timer=setInterval(function(){
-                     font_lb_l.click();
-                     },2500)
+                     timer=setInterval(function(){
+                        font_lb_r.click();
+                    },2000)
                 })
                 for(var i=0;i<li.length;i++){
                    var liz=document.createElement('li');
                    liz.setAttribute('index',i)
                    ol.appendChild(liz);
-                  
                    liz.addEventListener('click',function(){
-                     for(var i=0;i<ol.children.length;i++){
+                    
+                    for(var i=0;i<ol.children.length;i++){
                         ol.children[i].className='';
-                     }
-
-                      this.className='cuerrent';
-                      var index=this.getAttribute('index');
-                      num=index;  
-                      circle=index;         
-                      animate(ul,-foucusWidth*index);
-                   })
+                        li[i].style.opacity='0';
+                    }
+                    this.className='cuerrent';
+                    var index=this.getAttribute('index');
+                    
+                    console.log(circle);
+                    li[index].style.opacity='1';
+                    num = index;
+                    circle = index;
+                   });
                 }
+                li[0].style.opacity='1';
                 ol.children[0].className='cuerrent';
-                var first=ul.children[0].cloneNode(true);
-                ul.appendChild(first);
                 var num=0;
                 var circle=0;
                 var flag=true;
-                font_lb_l.addEventListener('click',function(){
-                  if(flag){
-                    flag=false;
-                   if(num==ul.children.length-1){
-                    ul.style.left=0;
-                    num=0;
-                   }
-                   num++;
-                   animate(ul,-num*foucusWidth,function(){
-                    flag=true;
-                   })
-                   circle++;
-                   if(circle==4){
-                    circle=0;
-                   }
-                   circleChange();
-                  }
-                })
                 font_lb_r.addEventListener('click',function(){
-                  if(flag){
+                    if(flag){
                     flag=false;
-                      
-                    if(num==0){
-                    num=ul.children.length-1;
-                     ul.style.left=-num*foucusWidth+'px';
                     
+                    if (num == li.length-1) {
+                       num = 0;
+                      } 
+                      num++;
+                      if(num==4){num=0}
+                       
+                        for(var i=0;i<ol.children.length;i++){
+                            li[i].style.opacity='0';
+                            ol.children[i].className='';
+                          
+                        }                
+                        li[num].style.opacity='1';            
+                        ol.children[num].className='cuerrent';
+                        
+                        //    定时器限制点击频率
+                       clearInterval(timer2);
+                       var timer2=setTimeout(function(){
+                            flag = true;
+                        },1800);
+
+                       
+                        
+                       
                     }
-                    num--;
-                    animate(ul,-num*foucusWidth,function(){
-                    flag=true;
-                   });
-                    circle--;
-                   circle=circle<0?ol.children.length-1:circle
-                    circleChange();
-                  }
-                 })
-                function circleChange(){
-                    for(var i=0;i<ol.children.length;i++){
-                         ol.children[i].className='';
-                      }
-                      ol.children[circle].className='cuerrent';
-                }
-               var timer=setInterval(function(){
-                font_lb_l.click();
-               },2500)
+                })
+                font_lb_l.addEventListener('click',function(){
+                    if(flag){
+                        flag=false;
+                    if (num == li.length-1) {
+                       num = 0;
+                      } 
+                      num--;
+                      
+                      if(num<0){num=3;}
+                       
+                        for(var i=0;i<ol.children.length;i++){
+                            li[i].style.opacity='0';
+                            ol.children[i].className='';
+                          
+                        }                
+                        
+                        li[num].style.opacity='1';
+                      
+                        ol.children[num].className='cuerrent';
+
+                        clearInterval(timer2);
+                    //    定时器限制点击频率
+                       var timer2=setTimeout(function(){
+                            flag = true;
+                        },1800);
+                    }
+
+                })
+                    var timer=setInterval(function(){
+                        font_lb_r.click();
+                    },2000)
              </script>
         <div class="banner_l">
             <ul>

@@ -389,7 +389,10 @@ float: left;
    
 }
 .benner_lby ul li{
-    float: left;
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+    
 }
 .benner_lby ul li img{
     width: 1226px;
